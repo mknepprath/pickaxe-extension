@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+
+  "name": "Pickaxe URL Generator",
+  "version": "0.0.0.1",
+  "description": "Easily load cards locally.",
+  "icons": { "16": "icon.png",
+           "48": "icon.png",
+          "128": "icon.png" },
+
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://dev.dragdrop.design/editor/*"],
+      "js": ["event.js"]
+    }
+  ],
+
+  "permissions": ["<all_urls>"]
+}
