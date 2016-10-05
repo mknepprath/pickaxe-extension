@@ -15,7 +15,8 @@
   "content_scripts": [
     {
       "matches": ["*://dev.dragdrop.design/editor/*"],
-      "js": ["event.js"]
+      "css": ["styles.css"],
+      "js": ["pickaxe.js"]
     }
   ],
 

@@ -1,0 +1,24 @@
+.pickaxe-ext-btn {
+  width: 25px;
+  height: 25px;
+  background: #1989DC;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  z-index: 1;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.pickaxe-ext-btn:hover {
+  background: #167CCE;
+}
+.pickaxe-ext-btn:active {
+  background: #00106d;
+}
+
+.pickaxe-ext-link {
+  color: rgba(0, 0, 0, 0);
+  font-size: 1px;
+  position: absolute;
+  left: -1000px;
+}
