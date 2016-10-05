@@ -6,3 +6,7 @@ If you open a card in Design Depot, this will also open it locally in a new tab.
 3. Enable Developer mode by ticking the checkbox in the upper-right corner.
 4. Click on the "Load unpacked extension..." button.
 5. Select the directory containing your unpacked extension.
+
+This also adds a button to the bottom right of the Depot editor instance. Clicking this will give you the url with token that you can paste into any browser.
+
+![pickaxe button demo](https://raw.githubusercontent.com/mknepprath/pickaxe-extension/master/button-demo.gif)
