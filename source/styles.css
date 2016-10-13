@@ -1,4 +1,4 @@
-.pickaxe-ext-btn {
+.pickaxe-ext-btn, .pickaxe-ext-local-btn {
   width: 25px;
   height: 25px;
   background: #1989DC;
@@ -9,10 +9,13 @@
   border-radius: 5px;
   cursor: pointer;
 }
-.pickaxe-ext-btn:hover {
+.pickaxe-ext-local-btn {
+  right: 35px;
+}
+.pickaxe-ext-btn:hover, .pickaxe-ext-local-btn:hover {
   background: #167CCE;
 }
-.pickaxe-ext-btn:active {
+.pickaxe-ext-btn:active, .pickaxe-ext-local-btn:active {
   background: #00106d;
 }
 

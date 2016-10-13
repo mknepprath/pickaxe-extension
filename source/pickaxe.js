@@ -1,9 +1,8 @@
 const {location: {href: currentUrl}, localStorage: {id_token: token}} = window
 const editorId = currentUrl.substr(currentUrl.lastIndexOf('/') + 1)
 const newUrl = 'http://localhost:3000/editor/' + editorId + '?token=' + token
-window.open(newUrl,'_blank')
 
-const emoji = ['✨', '🌟', '💫', '☄', '🚀']
+const emoji = ['✨', '🌟', '💫', '☄', '🚀', '⛏']
 
 var pickaxeLink = document.createElement('div')
 pickaxeLink.className = 'pickaxe-ext-link'
@@ -12,8 +11,18 @@ document.body.appendChild(pickaxeLink)
 
 var pickaxeBtn = document.createElement('button')
 pickaxeBtn.className = 'pickaxe-ext-btn'
-pickaxeBtn.innerHTML = '⛏'
+pickaxeBtn.innerHTML = '🚀'
 document.body.appendChild(pickaxeBtn)
+
+var localBtn = document.createElement('button')
+localBtn.className = 'pickaxe-ext-local-btn'
+localBtn.innerHTML = '🏠'
+document.body.appendChild(localBtn)
+
+localBtn.onclick = function () {
+  window.open(newUrl,'_blank')
+  localBtn.innerHTML = '🏚'
+}
 
 pickaxeBtn.onclick = function () {
   var range = document.createRange()
