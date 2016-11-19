@@ -1,0 +1,43 @@
+body {
+  width: 400px;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  border-radius: 3px;
+  margin: 8px 0;
+  background: rgba(245, 245, 245, 1);
+  list-style-type: none;
+}
+.current {
+  background: rgba(206, 234, 253, 1);
+}
+
+.local, .copy {
+  color: rgba(25, 137, 220, 1);
+  padding: 0 8px;
+  float: right;
+  cursor: pointer;
+}
+
+.local:hover, .copy:hover {
+  color: rgba(6, 60, 139, 1);
+}
+
+.local {
+  border-right: 1px solid rgba(204, 204, 204, 1);
+}
+.copy {
+  padding-right: 0;
+}
+
+.pickaxe-copy-link {
+  color: rgba(0, 0, 0, 0);
+  font-size: 1px;
+  position: absolute;
+  left: -1000px;
+}

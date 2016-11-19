@@ -1,12 +1,23 @@
-const {location: {href: currentUrl}, localStorage: {id_token: token}} = window
+const {location: {href: currentUrl}} = window
 const editorId = currentUrl.substr(currentUrl.lastIndexOf('/') + 1)
-const newUrl = 'http://localhost:3000/editor/' + editorId + '?token=' + token
+const {localStorage, localStorage: {[editorId]: token}} = window
+const url = 'http://localhost:3000/editor/' + editorId + '?token=' + token
+
+// Clears Chrome local storage (not localStorage)
+chrome.storage.local.clear()
+
+// Pushes all editor ids and tokens from localStorage to storage
+for (let editor in localStorage) {
+  if (editor.length === 24) {
+    chrome.storage.local.set({[editor]: localStorage[editor]})
+  }
+}
 
 const emoji = ['✨', '🌟', '💫', '☄', '🚀', '⛏']
 
 var pickaxeLink = document.createElement('div')
 pickaxeLink.className = 'pickaxe-ext-link'
-pickaxeLink.innerHTML = newUrl
+pickaxeLink.innerHTML = url
 document.body.appendChild(pickaxeLink)
 
 var pickaxeBtn = document.createElement('button')
@@ -20,7 +31,7 @@ localBtn.innerHTML = '🏠'
 document.body.appendChild(localBtn)
 
 localBtn.onclick = function () {
-  window.open(newUrl,'_blank')
+  window.open(url,'_blank')
   localBtn.innerHTML = '🏚'
 }
 

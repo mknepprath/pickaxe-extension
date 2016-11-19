@@ -9,7 +9,9 @@
           "128": "icon.png" },
 
   "browser_action": {
-    "default_icon": "icon.png"
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "Pickaxe Extension"
   },
 
   "content_scripts": [
@@ -20,5 +22,10 @@
     }
   ],
 
-  "permissions": ["<all_urls>"]
+  "permissions": [
+    "tabs",
+    "storage",
+    "http://*/*",
+    "https://*/*"
+  ]
 }
