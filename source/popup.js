@@ -8,7 +8,7 @@ chrome.storage.local.get(null, function(editors) {
     let editorItem = document.createElement('li')
 
     // Create button that opens editor locally
-    let editorLocalBtn = document.createElement('a')
+    let editorLocalBtn = document.createElement('button')
     editorLocalBtn.className = 'local'
     editorLocalBtn.innerHTML = 'local'
     editorLocalBtn.onclick = function () {
@@ -22,7 +22,7 @@ chrome.storage.local.get(null, function(editors) {
     document.body.appendChild(pickaxeLink)
 
     // Create button that copies editor url + token
-    let editorCopyBtn = document.createElement('a')
+    let editorCopyBtn = document.createElement('button')
     editorCopyBtn.className = 'copy'
     editorCopyBtn.innerHTML = 'copy'
     editorCopyBtn.onclick = function () {

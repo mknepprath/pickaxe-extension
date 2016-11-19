@@ -20,6 +20,8 @@ li {
 .local, .copy {
   color: rgba(25, 137, 220, 1);
   padding: 0 8px;
+  border: none;
+  background: none;
   float: right;
   cursor: pointer;
 }
