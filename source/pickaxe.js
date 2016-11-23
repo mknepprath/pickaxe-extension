@@ -4,6 +4,7 @@ const {localStorage, localStorage: {[editorId]: token}} = window
 const url = 'http://localhost:3000/editor/' + editorId + '?token=' + token
 
 // Clears Chrome local storage (not localStorage)
+// Should be smarter about this - only clear the ones not in localStorage
 chrome.storage.local.clear()
 
 // Pushes all editor ids and tokens from localStorage to storage

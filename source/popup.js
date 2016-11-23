@@ -24,7 +24,7 @@ chrome.storage.local.get(null, function(editors) {
     // Create button that copies editor url + token
     let editorCopyBtn = document.createElement('button')
     editorCopyBtn.className = 'copy'
-    editorCopyBtn.innerHTML = 'copy'
+    editorCopyBtn.innerHTML = 'copy url'
     editorCopyBtn.onclick = function () {
       var range = document.createRange()
       range.selectNode(pickaxeLink)
@@ -53,6 +53,6 @@ chrome.storage.local.get(null, function(editors) {
     editorItem.append(editorLocalBtn)
 
     // Add editor listing to popup
-    document.getElementById('storage').append(editorItem)
+    document.getElementById('storage').prepend(editorItem)
   }
 })
