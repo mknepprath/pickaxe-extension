@@ -28,15 +28,6 @@ for (let editor in localStorage) {
   }
 }
 
-// Removes editors from storage if not in localStorage
-chrome.storage.local.get(null, function (editors) {
-  for (let editor in editors) {
-    if (localStorage[editor] === undefined) {
-      chrome.storage.local.remove(editor)
-    }
-  }
-})
-
 // Creates and places corner shortcut buttons
 const emoji = ['✨', '🌟', '💫', '☄', '🚀', '⛏']
 
