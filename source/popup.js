@@ -19,11 +19,11 @@ const getEditors = function () {
       // Create editor listing
       let editorItem = document.createElement('li')
 
-      // Create button that opens editor locally
-      let editorLocalBtn = document.createElement('button')
-      editorLocalBtn.className = 'local'
-      editorLocalBtn.innerHTML = 'open'
-      editorLocalBtn.onclick = function () {
+      // Create button that opens editor
+      let editorOpenBtn = document.createElement('button')
+      editorOpenBtn.className = 'open'
+      editorOpenBtn.innerHTML = 'open'
+      editorOpenBtn.onclick = function () {
         const urlBases = document.getElementById('urlBase')
         let urlBase = urlBases.options[urlBases.selectedIndex].value
         if (urlBase.endsWith(':'))
@@ -91,7 +91,7 @@ const getEditors = function () {
       editorItem.append(id)
       editorItem.append(editorDeleteBtn)
       editorItem.append(editorCopyBtn)
-      editorItem.append(editorLocalBtn)
+      editorItem.append(editorOpenBtn)
 
       // Add editor listing to popup
       document.getElementById('storage').prepend(editorItem)

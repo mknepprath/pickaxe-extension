@@ -17,7 +17,7 @@ li {
   background: rgba(206, 234, 253, 1);
 }
 
-.local, .copy, .delete {
+.open, .copy, .delete {
   color: rgba(25, 137, 220, 1);
   padding: 0 8px;
   border: none;
@@ -26,11 +26,11 @@ li {
   cursor: pointer;
 }
 
-.local:hover, .copy:hover, .delete:hover {
+.open:hover, .copy:hover, .delete:hover {
   color: rgba(6, 60, 139, 1);
 }
 
-.local, .copy {
+.open, .copy {
   border-right: 1px solid rgba(204, 204, 204, 1);
 }
 .delete {
