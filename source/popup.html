@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="popup.css" rel="stylesheet" type="text/css">
+    <link href='popup.css' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <ul id="storage"></ul>
-    <script type="text/javascript" src="popup.js"></script>
+    <select name='urlBase' id='urlBase'>
+      <option value='localhost:'>local</option>
+      <option value='10.0.1.11:'>external</option>
+      <option value='dev.dragdrop.design'>dev</option>
+      <option value='www.dragdrop.design'>prod</option>
+    </select>
+    <label>Port: </label>
+    <input id='port' value='3000' />
+    <ul id='storage'></ul>
+    <button id='clear-storage'>Clear Editors</button>
+    <script type='text/javascript' src='popup.js'></script>
   </body>
 </html>

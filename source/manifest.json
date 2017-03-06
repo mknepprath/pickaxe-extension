@@ -16,7 +16,7 @@
 
   "content_scripts": [
     {
-      "matches": ["*://dev.dragdrop.design/editor/*", "http://localhost:3000/editor/*"],
+      "matches": ["*://*/editor/*"],
       "css": ["styles.css"],
       "js": ["pickaxe.js"]
     }
@@ -25,7 +25,6 @@
   "permissions": [
     "tabs",
     "storage",
-    "http://*/*",
-    "https://*/*"
+    "*://*/*"
   ]
 }

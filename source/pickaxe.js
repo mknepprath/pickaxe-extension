@@ -3,17 +3,41 @@ const editorId = currentUrl.substr(currentUrl.lastIndexOf('/') + 1)
 const {localStorage, localStorage: {[editorId]: token}} = window
 const url = 'http://localhost:3000/editor/' + editorId + '?token=' + token
 
-// Clears Chrome local storage (not localStorage)
-// Should be smarter about this - only clear the ones not in localStorage
-chrome.storage.local.clear()
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    if (request.storage === 'clear') {
+      window.localStorage.clear()
+      chrome.storage.local.clear()
+      sendResponse({status: 'complete'})
+    } else if (request.remove) {
+      delete window.localStorage[request.remove]
+      chrome.storage.local.remove(request.remove)
+      sendResponse({status: 'complete'})
+    }
+  }
+)
 
-// Pushes all editor ids and tokens from localStorage to storage
+// Pushes all editor ids and tokens from localStorage to storage (ids are 24 characters long)
 for (let editor in localStorage) {
   if (editor.length === 24) {
-    chrome.storage.local.set({[editor]: localStorage[editor]})
+    chrome.storage.local.get(editor, function (obj) {
+      if (Object.keys(obj).length === 0 && obj.constructor === Object) {
+        chrome.storage.local.set({[editor]: localStorage[editor]})
+      }
+    })
   }
 }
 
+// Removes editors from storage if not in localStorage
+chrome.storage.local.get(null, function (editors) {
+  for (let editor in editors) {
+    if (localStorage[editor] === undefined) {
+      chrome.storage.local.remove(editor)
+    }
+  }
+})
+
+// Creates and places corner shortcut buttons
 const emoji = ['✨', '🌟', '💫', '☄', '🚀', '⛏']
 
 var pickaxeLink = document.createElement('div')
