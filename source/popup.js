@@ -4,16 +4,16 @@ const port = document.getElementById('port')
 const clearStorage = document.getElementById('clear-storage')
 
 chrome.storage.local.get(null, function (editors) {
+  // Loop through editors
   for (let id in editors) {
-    // Create editor listing
     let editorItem = document.createElement('li')
     editorItem.id = id
-    let editorName = document.createElement('input')
-    editorName.className = 'editor-name'
-    editorName.value = editors[id].name
-    editorName.size = editors[id].name.length + 3
-    editorName.onchange = updateEditorName
-    editorItem.append(editorName)
+    editorItem.append(
+      createName(
+        editors[id].name,
+        updateEditorName
+      )
+    )
     editorItem.append(
       createButton(
         'delete',
@@ -53,9 +53,10 @@ chrome.storage.local.get(null, function (editors) {
 
 // Highlight current tab
 chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
-  const currentUrl = tabs[0].url
-  const currentId = currentUrl.substr(currentUrl.lastIndexOf('/') + 1)
-  document.getElementById(currentId).className = 'current'
+  const url = tabs[0].url
+  const id = url.substr(url.lastIndexOf('/') + 1)
+  const editor = document.getElementById(id)
+  if (editor) editor.className = 'current'
 })
 
 // Clears storage when Clear Editors button is clicked
@@ -108,6 +109,15 @@ const createButton = function (className, text, onclick) {
   return btn
 }
 
+const createName = function (name, onchange) {
+  let input = document.createElement('input')
+  input.className = 'editor-name'
+  input.value = name
+  input.size = name.length + 3
+  input.onchange = onchange
+  return input
+}
+
 const createPickaxeLink = function (base, port, id, token) {
   let pickaxeLink = document.createElement('div')
   pickaxeLink.className = 'pickaxe-copy-link'
@@ -131,7 +141,7 @@ const displayPort = function (base) {
 
 const displayClearStorage = function () {
   chrome.storage.local.get(null, function (editors) {
-    clearStorage.style.display = (!Object.keys(editors).length) ? 'none' : 'block'
+    clearStorage.style.display = !!Object.keys(editors).length ? 'block' : 'none'
   })
 }
 
