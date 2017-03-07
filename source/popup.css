@@ -1,5 +1,5 @@
 body {
-  width: 360px;
+  width: 340px;
 }
 
 ul {
@@ -42,4 +42,14 @@ li {
   font-size: 1px;
   position: absolute;
   left: -1000px;
+}
+
+.port {
+  display: inline;
+}
+
+.editor-name {
+  padding: 0;
+  border: 0;
+  background: none;
 }
