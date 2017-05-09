@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Pickaxe URL Generator",
-  "version": "0.0.0.1",
+  "version": "0.0.0.2",
   "description": "Easily load cards locally.",
   "icons": { "16": "icon.png",
            "48": "icon.png",
